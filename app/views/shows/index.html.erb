@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Shows</h1>
+
+<div id="shows">
+  <table>
+    <thead>
+      <tr>
+      <th>Title</th>
+      <th>Season</th>
+      <th>Season Start</th>
+      <th>Season End</th>
+      <th colspan="2"></th>
+    </tr>
+    <% @shows.each do |show| %>
+      <%= render "show_row", show: show %>
+    <% end %>
+   </table>
+</div>
+
+<%= link_to "New show", new_show_path %>
