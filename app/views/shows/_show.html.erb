@@ -1,22 +1,24 @@
 <div id="<%= dom_id show %>">
-  <p>
-    <strong>Title:</strong>
-    <%= show.title %>
-  </p>
+  <h3><%= show.title %></h3>
 
-  <p>
-    <strong>Season:</strong>
-    <%= show.season %>
-  </p>
+  <% if show.season.present? %>
+    <p>
+      <strong>Season:</strong>
+      <%= show.season %>
+    </p>
+  <% end %>
 
-  <p>
-    <strong>Season start:</strong>
-    <%= show.season_start %>
-  </p>
+  <% if show.season_start.present? %>
+    <p>
+      <strong>Season start:</strong>
+      <%= show.season_start %>
+    </p>
+  <% end %>
 
-  <p>
-    <strong>Season end:</strong>
-    <%= show.season_end %>
-  </p>
-
+  <% if show.season_end.present? %>
+    <p>
+      <strong>Season end:</strong>
+      <%= show.season_end %>
+    </p>
+  <% end %>
 </div>

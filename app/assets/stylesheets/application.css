@@ -1,15 +1,46 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+   input {
+        @apply appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500;
+    }
+    label {
+        @apply block text-gray-700 text-sm font-bold mb-2 pr-2;
+    }
+
+    .form-field-div {
+        @apply mb-4 flex;
+    }
+
+    .form-submit {
+        @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none active:bg-blue-800;
+    }
+
+    h1 {
+        @apply text-4xl font-bold text-center;
+    }
+    
+    h2 {
+        @apply text-3xl font-bold text-center;
+    }
+
+    h3 {
+        @apply text-2xl font-bold text-center;
+    }
+
+    tr {
+        @apply even:bg-gray-100 odd:bg-white hover:bg-gray-200;
+    }
+
+    th, td {
+        @apply p-2;
+    }
+
+    .destroy-btn {
+        @apply bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none active:bg-red-800;
+    }
+
+    .new-link {
+        @apply bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none active:bg-green-800;
+    }

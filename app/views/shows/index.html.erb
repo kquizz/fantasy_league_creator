@@ -1,10 +1,10 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Shows</h1>
+<h2>Shows</h1>
+<br/>
 
 <div id="shows">
   <table>
-    <thead>
+    <thead class="bg-gray-100">
       <tr>
       <th>Title</th>
       <th>Season</th>
@@ -12,10 +12,12 @@
       <th>Season End</th>
       <th colspan="2"></th>
     </tr>
-    <% @shows.each do |show| %>
-      <%= render "show_row", show: show %>
-    <% end %>
+    <tbody>
+      <% @shows.each do |show| %>
+        <%= render "show_row", show: show %>
+      <% end %>
+    </tbody>
    </table>
 </div>
 
-<%= link_to "New show", new_show_path %>
+<%= link_to "New show", new_show_path, class: "new-link" %>

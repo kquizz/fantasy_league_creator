@@ -2,7 +2,6 @@
   <% if show.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(show.errors.count, "error") %> prohibited this show from being saved:</h2>
-
       <ul>
         <% show.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,27 +10,27 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
+  <div class="form-field-div">
+    <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
 
-  <div>
-    <%= form.label :season, style: "display: block" %>
+  <div class="form-field-div">
+    <%= form.label :season %>
     <%= form.number_field :season %>
   </div>
 
-  <div>
-    <%= form.label :season_start, style: "display: block" %>
+  <div class="form-field-div">
+    <%= form.label :season_start %>
     <%= form.date_field :season_start %>
   </div>
 
-  <div>
-    <%= form.label :season_end, style: "display: block" %>
+  <div class="form-field-div">
+    <%= form.label :season_end %>
     <%= form.date_field :season_end %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Submit", class: "form-submit" %>
   </div>
 <% end %>
