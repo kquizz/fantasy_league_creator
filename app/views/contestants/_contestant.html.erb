@@ -1,0 +1,32 @@
+<div id="<%= dom_id contestant %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= contestant.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Birthdate:</strong>
+    <%= contestant.birthdate %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Image:</strong>
+    <%= image_tag contestant.image if contestant.image.attached? %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Arrival date:</strong>
+    <%= contestant.arrival_date %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Details:</strong>
+    <%= contestant.details %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this contestant", contestant, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this contestant", edit_contestant_path(contestant), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

@@ -1,0 +1,42 @@
+<%= form_with(model: contestant, class: "contents") do |form| %>
+  <% if contestant.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(contestant.errors.count, "error") %> prohibited this contestant from being saved:</h2>
+
+      <ul>
+        <% contestant.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :birthdate %>
+    <%= form.date_field :birthdate, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :arrival_date %>
+    <%= form.date_field :arrival_date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :details %>
+    <%= form.text_area :details, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit "Submit", class: "form-submit" %>
+  </div>
+<% end %>

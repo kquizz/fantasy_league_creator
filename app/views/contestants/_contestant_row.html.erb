@@ -1,0 +1,9 @@
+<tr>
+  <td><%= contestant.name %></td>
+  <td><%= image_tag contestant.image, style: "height: 200px" if contestant.image.attached? %></td>
+  <td><%= contestant.birthdate %></td>
+  <td><%= contestant.arrival_date %></td>
+  <td><%= contestant.details %></td>
+  <td><%= link_to 'Show', contestant %></td>
+  <td><%= link_to 'Edit', edit_contestant_path(contestant) %></td>
+</tr>
