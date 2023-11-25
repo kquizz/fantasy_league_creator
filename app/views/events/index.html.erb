@@ -1,8 +1,8 @@
 <p style="color: green"><%= notice %></p>
-<h2>Shows</h1>
+<h2>Events</h1>
 <br/>
 
-<div id="shows">
+<div id="events">
   <table>
     <thead class="bg-gray-100">
       <tr>
@@ -14,11 +14,11 @@
       <th colspan="2"></th>
     </tr>
     <tbody>
-      <% @shows.each do |show| %>
-        <%= render "show_row", show: show %>
+      <% @events.each do |event| %>
+        <%= render "event_row", event: event %>
       <% end %>
     </tbody>
    </table>
 </div>
 
-<%= link_to "New show", new_show_path, class: "new-link" %>
+<%= link_to "New event", new_event_path, class: "new-link" %>

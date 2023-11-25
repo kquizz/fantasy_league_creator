@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   resources :contestants
-  resources :shows
+  resources :events
   get 'user_sessions/new'
   get 'user_sessions/create'
   get 'user_sessions/destroy'
-  root :to => 'shows#index'
+  root :to => 'events#index'
   resources :users
 
 get 'login' => 'user_sessions#new', :as => :login

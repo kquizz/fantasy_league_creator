@@ -1,30 +1,30 @@
-<div id="<%= dom_id show %>">
-  <h3><%= show.title %></h3>
+<div id="<%= dom_id event %>">
+  <h3><%= event.title %></h3>
   <div class = "flex">
-    <% if show.banner.attached? %>
+    <% if event.banner.attached? %>
       <div class="flex-none bg-gray-300 p-4 m-2">
-        <%= image_tag @show.banner, style:"height:200px" if @show.banner.attached? %>
+        <%= image_tag @event.banner, style:"height:200px" if @event.banner.attached? %>
       </div>
     <% end %>
     <div class="flex-none bg-gray-300 p-4 m-2">
-      <% if show.season.present? %>
+      <% if event.season.present? %>
         <p>
           <strong>Season:</strong>
-          <%= show.season %>
+          <%= event.season %>
         </p>
       <% end %>
       
-      <% if show.season_start.present? %>
+      <% if event.season_start.present? %>
         <p>
           <strong>Season start:</strong>
-          <%= show.season_start %>
+          <%= event.season_start %>
         </p>
       <% end %>
       
-      <% if show.season_end.present? %>
+      <% if event.season_end.present? %>
         <p>
           <strong>Season end:</strong>
-          <%= show.season_end %>
+          <%= event.season_end %>
         </p>
       <% end %>
     </div>

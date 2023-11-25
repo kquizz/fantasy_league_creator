@@ -1,0 +1,9 @@
+<tr>
+  <td><%= event.title %></td>
+  <td><%= image_tag event.banner, style: "height: 200px" if event.banner.attached? %></td>
+  <td><%= event.season %></td>
+  <td><%= event.season_start %></td>
+  <td><%= event.season_end %></td>
+  <td><%= link_to 'Event', event %></td>
+  <td><%= link_to 'Edit', edit_event_path(event) %></td>
+</tr>
