@@ -1,28 +1,34 @@
 <div id="<%= dom_id contestant %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
+  <h3>
     <%= contestant.name %>
-  </p>
+  </h3>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Birthdate:</strong>
-    <%= contestant.birthdate %>
-  </p>
+  <% if contestant.birthdate.present? %>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Birthdate:</strong>
+      <%= contestant.birthdate %>
+    </p>
+  <% end %>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Image:</strong>
-    <%= image_tag contestant.image if contestant.image.attached? %>
-  </p>
+  <% if contestant.image.attached? %>
+    <p class="my-5">
+      <%= image_tag contestant.image if contestant.image.attached? %>
+    </p>
+  <% end %>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Arrival date:</strong>
-    <%= contestant.arrival_date %>
-  </p>
+  <% if contestant.arrival_date.present? %>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Arrival date:</strong>
+      <%= contestant.arrival_date %>
+    </p>
+  <% end %>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Details:</strong>
-    <%= contestant.details %>
-  </p>
+  <% if contestant.details.present? %>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Details:</strong>
+      <%= contestant.details %>
+    </p>
+  <% end %>
 
   <% if action_name != "show" %>
     <%= link_to "Show this contestant", contestant, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
