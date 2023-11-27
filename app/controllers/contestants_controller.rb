@@ -23,6 +23,8 @@ class ContestantsController < ApplicationController
   def create
     @contestant = Contestant.new(contestant_params)
 
+    @contestant.created_by = current_user
+
     respond_to do |format|
       if @contestant.save
         format.html { redirect_to contestant_url(@contestant), notice: "Contestant was successfully created." }
