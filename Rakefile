@@ -4,3 +4,7 @@
 require_relative "config/application"
 
 Rails.application.load_tasks
+
+task :compile_tailwind do
+  sh "tailwindcss -c config/tailwind.config.js -i app/assets/stylesheets/application.css -o app/assets/stylesheets/wind.css"
+end
