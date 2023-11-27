@@ -2,45 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
-   input {
-        @apply appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500;
-    }
-    label {
-        @apply block text-gray-700 text-sm font-bold mb-2 pr-2;
-    }
+input {
+    @apply appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500;
+}
 
-    .form-field-div {
-        @apply mb-4 flex;
-    }
+label {
+    @apply block text-gray-700 text-sm font-bold mb-2 pr-2;
+}
 
-    .form-submit {
-        @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none active:bg-blue-800;
-    }
+.form-field-div {
+    @apply mb-4 flex;
+}
 
-    h1 {
-        @apply text-4xl font-bold text-center;
-    }
-    
-    h2 {
-        @apply text-3xl font-bold text-center;
-    }
+.form-submit {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none active:bg-blue-800;
+}
 
-    h3 {
-        @apply text-2xl font-bold text-center;
-    }
+h1 {
+    @apply text-4xl font-bold text-center;
+}
 
-    tr {
-        @apply even:bg-gray-100 odd:bg-white hover:bg-gray-200;
-    }
+h2 {
+    @apply text-3xl font-bold text-center;
+}
 
-    th, td {
-        @apply p-2;
-    }
+h3 {
+    @apply text-2xl font-bold text-center;
+}
 
-    .destroy-btn {
-        @apply bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none active:bg-red-800;
-    }
+h4 {
+    @apply font-bold text-center;
+}
 
-    .new-link {
-        @apply bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none active:bg-green-800;
-    }
+.nav-link {
+    /* Add your custom styling here */
+    /* For example: */
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+.nav-link:hover {
+    /* Add your custom hover styling here */
+    /* For example: */
+    background-color: gray;
+}
+
+tr {
+    @apply even:bg-gray-100 odd:bg-white hover:bg-gray-200;
+}
+
+th,
+td {
+    @apply p-2;
+}
+
+.destroy-btn {
+    @apply bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none active:bg-red-800;
+}
+
+.edit-btn {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none active:bg-blue-800;
+}
+
+.back-btn {
+    @apply bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none active:bg-gray-800;
+}
+
+.new-link {
+    @apply bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none active:bg-green-800;
+}

@@ -1,10 +1,6 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @event %>
-
-<div>
-  <%= link_to "Edit this event", edit_event_path(@event) %> |
-  <%= link_to "Back to events", events_path %>
-<br/><br/>
+<div class="flex">
+  <%= button_to "<< Back to events", events_path, method: :get, class: "back-btn" %>
+  <%= button_to "Edit this event", edit_event_path(@event), method: :get, class: "edit-btn" %>
   <%= button_to "Destroy this event", @event, method: :delete, class: "destroy-btn" %>
 </div>

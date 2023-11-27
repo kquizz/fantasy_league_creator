@@ -1,15 +1,6 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
-
-    <%= render @contestant %>
-
-    <%= link_to "Edit this contestant", edit_contestant_path(@contestant), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to "Destroy this contestant", contestant_path(@contestant), method: :delete, class: "destroy-btn" %>
-    </div>
-    <%= link_to "Back to contestants", contestants_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  </div>
+<%= render @contestant %>
+<div class="flex">
+  <%= button_to "<< Back to contestants", contestants_path, method: :get, class: "back-btn" %>
+  <%= button_to "Edit this contestant", edit_contestant_path(@contestant), method: :get, class: "edit-btn" %>
+  <%= button_to "Destroy this contestant", @contestant, method: :delete, class: "destroy-btn" %>
 </div>

@@ -1,5 +1,11 @@
 <div id="<%= dom_id event %>">
-  <h3><%= event.title %></h3>
+  <h3><%= event.full_title %></h3>
+  <% if event.season_start.present?%>
+  <h4>
+    <%= event.time_until_string%>
+  </h4>
+  <% end %>
+  <br /> <br />
   <div class = "flex">
     <% if event.banner.attached? %>
       <div class="flex-none bg-gray-300 p-4 m-2">
@@ -17,14 +23,30 @@
       <% if event.season_start.present? %>
         <p>
           <strong>Season start:</strong>
-          <%= event.season_start %>
+          <%= event.season_start.strftime("%A, %B %e%t %Y")  %>
         </p>
       <% end %>
       
       <% if event.season_end.present? %>
         <p>
           <strong>Season end:</strong>
-          <%= event.season_end %>
+          &nbsp;&nbsp;<%= event.season_end.strftime("%A, %B %e%t %Y")  %>
+        </p>
+      <% end %>
+
+      <% if event.created_by.present? %>
+        <p class="my-5">
+          <strong>Created By:</strong>
+          <%= event.created_by.username %>
+        </p>
+      <% end %>
+    </div>
+
+    <div class="flex-none bg-gray-300 p-4 m-2">
+      <% if event.season_start.present? && event.season_end.present?%>
+      <p class"my-5">
+        <strong>Season Length:</strong>
+        <%= event.season_length %> days
         </p>
       <% end %>
     </div>

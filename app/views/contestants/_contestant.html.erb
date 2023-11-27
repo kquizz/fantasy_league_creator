@@ -30,9 +30,10 @@
     </p>
   <% end %>
 
-  <% if action_name != "show" %>
-    <%= link_to "Show this contestant", contestant, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this contestant", edit_contestant_path(contestant), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+  <% if contestant.created_by.present? %>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Created By:</strong>
+      <%= contestant.created_by.username %>
+    </p>
   <% end %>
 </div>
