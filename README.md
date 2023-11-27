@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hello all!
 
-Things you may want to cover:
+I am trying to brush up on my Ruby skills, and I wanted to create a general purpose Fantasy League website.
 
-* Ruby version
+Eventually I'll have this on a website, and hopefully monetize it lol.
 
-* System dependencies
+Until then this is how to get it running on your machine!
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+-- Get Ruby 3.0.0 running (I suggest rbenv)
+rbenv install 3.0.0
+-- Bundle!
+bundle install
+-- Install npm
+sudo apt install npm
+-- DB migrate
+rails db:migrate
+-- Compile tailwind css
+bundle exec rake compile_tailwind
+-- Setup Solargraph (Optional) (& opens it in the background)
+solargraph socket
+--Start rails server
+rails s
