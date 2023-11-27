@@ -4,6 +4,9 @@ class Event < ApplicationRecord
   has_one_attached :banner
   belongs_to :created_by, class_name: 'User', foreign_key: 'created_by_id'
 
+  has_many :event_contestants
+  has_many :contestants, through: :event_contestants
+
   def has_began
     season_start > Date.today ? true : false
   end

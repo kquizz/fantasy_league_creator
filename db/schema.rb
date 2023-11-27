@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_27_050606) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_27_210831) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -51,6 +51,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_27_050606) do
     t.index ["created_by_id"], name: "index_contestants_on_created_by_id"
   end
 
+  create_table "event_contestants", force: :cascade do |t|
+    t.integer "event_id", null: false
+    t.integer "contestant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contestant_id"], name: "index_event_contestants_on_contestant_id"
+    t.index ["event_id"], name: "index_event_contestants_on_event_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.integer "season"
@@ -77,5 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_27_050606) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "contestants", "users", column: "created_by_id"
+  add_foreign_key "event_contestants", "contestants"
+  add_foreign_key "event_contestants", "events"
   add_foreign_key "events", "users", column: "created_by_id"
 end
