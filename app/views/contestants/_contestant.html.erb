@@ -2,38 +2,45 @@
   <h3>
     <%= contestant.name %>
   </h3>
-
-  <% if contestant.birthdate.present? %>
-    <p class="my-5">
-      <strong class="block font-medium mb-1">Birthdate:</strong>
-      <%= contestant.birthdate %>
-    </p>
-  <% end %>
-
+  <div class="flex">
   <% if contestant.image.attached? %>
-    <p class="my-5">
-      <%= image_tag contestant.image if contestant.image.attached? %>
-    </p>
+    <div>
+      <p class="flex-none bg-gray-300 p-4 m-2">
+       <%= image_tag contestant.image, style:"width: 250px" if contestant.image.attached? %>
+      </p>
+    </div>
   <% end %>
+  <% if contestant.birthdate.present? or contestant.arrival_date.present? or 
+        contestant.details.present?%>
+    <div class="flex-none bg-gray-300 p-4 m-2">
+      <% if contestant.birthdate.present? %>
+        <p class="my-5">
+          <strong class="block font-medium mb-1">Birthdate:</strong>
+          <%= contestant.birthdate %>
+        </p>
+      <% end %>
 
-  <% if contestant.arrival_date.present? %>
-    <p class="my-5">
-      <strong class="block font-medium mb-1">Arrival date:</strong>
-      <%= contestant.arrival_date %>
-    </p>
-  <% end %>
+      <% if contestant.arrival_date.present? %>
+        <p class="my-5">
+          <strong class="block font-medium mb-1">Arrival date:</strong>
+          <%= contestant.arrival_date %>
+        </p>
+      <% end %>
 
-  <% if contestant.details.present? %>
-    <p class="my-5">
-      <strong class="block font-medium mb-1">Details:</strong>
-      <%= contestant.details %>
-    </p>
-  <% end %>
-
-  <% if contestant.created_by.present? %>
-    <p class="my-5">
-      <strong class="block font-medium mb-1">Created By:</strong>
-      <%= contestant.created_by.username %>
-    </p>
-  <% end %>
+      <% if contestant.details.present? %>
+        <p class="my-5">
+          <strong class="block font-medium mb-1">Details:</strong>
+          <%= contestant.details %>
+        </p>
+      <% end %>
+      </div>
+    <% end %>
+    <div class="flex-none bg-gray-300 p-4 m-2">
+    <% if contestant.created_by.present? %>
+      <p class="my-5">
+        <strong class="block font-medium mb-1">Created By:</strong>
+        <%= contestant.created_by.username %>
+      </p>
+    <% end %>
+  </div>
 </div>

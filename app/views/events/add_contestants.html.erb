@@ -1,0 +1,16 @@
+<div class="mx-auto md:w-2/3 w-full">
+  <h3>Add Contestants to <%= @event.full_title %></h3>
+
+  <%= form_tag event_upsert_contestants_path, method: :post do %>
+    <% @contestants.each do |contestant| %>
+      <div>
+        <%= check_box_tag 'contestant_ids[]', contestant.id, @event.contestants.any?{ |c| c.id == contestant.id}, id: "contestant_#{contestant.id}" %>
+        <%= label_tag "contestant_#{contestant.id}", contestant.name %>
+        <%= image_tag contestant.image, style: "width: 250px" if contestant.image.attached? %>
+      </div>
+    <% end %>
+
+    <%= button_to "<< Back to Event", event_upsert_contestants_path(@event), method: :get, class: "back-btn" %>
+    <%= submit_tag 'Add Contestants', class: "form-submit" %>
+  <% end %>
+</div>

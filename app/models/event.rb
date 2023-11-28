@@ -16,7 +16,11 @@ class Event < ApplicationRecord
   end
 
   def full_title
-    "#{title} - Season: #{season}"
+    if season.present?
+      "#{title} - Season: #{season}"
+    else
+      title
+    end
   end
 
   def season_length

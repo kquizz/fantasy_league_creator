@@ -1,4 +1,15 @@
 <%= render @event %>
+
+<% if @event.contestants.present?%>
+  <h3>Contestants</h3> 
+  <%= button_to "Edit Contestants", event_upsert_contestants_path(@event), method: :get, class: "edit-btn" %>
+  <div class="contestant-container grid gap-4">
+    <% @event.contestants.each do |contestant| %>
+      <%= render "contestants/contestant_mini", contestant: contestant %>
+    <% end %>
+  </div>
+<% end %>
+
 <div class="flex">
   <%= button_to "<< Back to events", events_path, method: :get, class: "back-btn" %>
   <%= button_to "Edit this event", edit_event_path(@event), method: :get, class: "edit-btn" %>

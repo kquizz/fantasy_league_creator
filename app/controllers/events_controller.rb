@@ -19,6 +19,12 @@ class EventsController < ApplicationController
   def edit
   end
 
+  # GET /events/1/add_contestants
+  def add_contestants
+    @event = Event.find(params[:event_id])
+    @contestants = Contestant.all
+  end
+
   # POST /events or /events.json
   def create
     @event = Event.new(event_params)
@@ -57,6 +63,17 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url, notice: "Event was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  #  POST /events/1/upsert_contestants
+  def upsert_contestants
+    event = Event.find(params[:event_id])
+    contestant_ids = params[:contestant_ids]
+
+    event.contestants.destroy_all
+    event.contestants << Contestant.where(id: contestant_ids)
+
+    redirect_to event_path(event)
   end
 
   private

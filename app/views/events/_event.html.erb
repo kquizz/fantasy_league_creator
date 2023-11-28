@@ -6,49 +6,51 @@
   </h4>
   <% end %>
   <br /> <br />
-  <div class = "flex">
+  <div class="flex">
     <% if event.banner.attached? %>
       <div class="flex-none bg-gray-300 p-4 m-2">
-        <%= image_tag @event.banner, style:"height:200px" if @event.banner.attached? %>
+        <%= image_tag @event.banner, style:"height:250px" if @event.banner.attached? %>
       </div>
     <% end %>
-    <div class="flex-none bg-gray-300 p-4 m-2">
-      <% if event.season.present? %>
-        <p>
-          <strong>Season:</strong>
-          <%= event.season %>
-        </p>
-      <% end %>
-      
-      <% if event.season_start.present? %>
-        <p>
-          <strong>Season start:</strong>
-          <%= event.season_start.strftime("%A, %B %e%t %Y")  %>
-        </p>
-      <% end %>
-      
-      <% if event.season_end.present? %>
-        <p>
-          <strong>Season end:</strong>
-          &nbsp;&nbsp;<%= event.season_end.strftime("%A, %B %e%t %Y")  %>
-        </p>
+    <% if event.season.present? or event.season_start.present? or event.season_end.present? %>
+      <div class="flex-none bg-gray-300 p-4 m-2">
+        <% if event.season.present? %>
+          <p>
+            <strong>Season:</strong>
+            <%= event.season %>
+          </p>
+        <% end %>
+        
+        <% if event.season_start.present? %>
+          <p>
+            <strong>Season start:</strong>
+            <%= event.season_start.strftime("%A, %B %e%t %Y")  %>
+          </p>
+        <% end %>
+        
+        <% if event.season_end.present? %>
+          <p>
+            <strong>Season end:</strong>
+            &nbsp;&nbsp;<%= event.season_end.strftime("%A, %B %e%t %Y")  %>
+          </p>
+        <% end %>
+
+        <% if event.season_length.present? %>
+          <p>
+            <strong>Season Length:</strong>
+            <%= event.season_length %> days
+            </p>
+          <% end %>
+        </div>
       <% end %>
 
-      <% if event.created_by.present? %>
-        <p class="my-5">
-          <strong>Created By:</strong>
-          <%= event.created_by.username %>
-        </p>
-      <% end %>
-    </div>
-
-    <div class="flex-none bg-gray-300 p-4 m-2">
-      <% if event.season_start.present? && event.season_end.present?%>
-      <p class"my-5">
-        <strong>Season Length:</strong>
-        <%= event.season_length %> days
-        </p>
-      <% end %>
+      <div class="flex-none bg-gray-300 p-4 m-2">
+        <% if event.created_by.present? %>
+          <p class="my-5">
+            <strong>Created By:</strong>
+            <%= event.created_by.username %>
+          </p>
+        <% end %>
     </div>
   </div>
 </div>

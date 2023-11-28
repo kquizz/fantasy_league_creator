@@ -1,0 +1,10 @@
+<div id="<%= dom_id contestant %>" class="contestant-mini w-[200px] p-5">
+  <strong>
+    <%= contestant.name %>
+  </strong>
+  <% if contestant.image.attached? %>
+    <p class="my-5">
+      <%= image_tag contestant.image, style: "width: 200px" %>
+    </p>
+  <% end %>
+</div>
