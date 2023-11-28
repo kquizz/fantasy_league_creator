@@ -36,10 +36,16 @@
       </div>
     <% end %>
     <div class="flex-none bg-gray-300 p-4 m-2">
-    <% if contestant.created_by.present? %>
+      <% if contestant.created_by.present? %>
+        <p class="my-5">
+          <strong class="block font-medium mb-1">Created By:</strong>
+          <%= contestant.created_by.username %>
+        </p>
+      <% end %>
+    <% if contestant.divisions.present?%>
       <p class="my-5">
-        <strong class="block font-medium mb-1">Created By:</strong>
-        <%= contestant.created_by.username %>
+        <strong class="block font-medium mb-1">Divisions:</strong>
+        <%= contestant.divisions.map(&:name).join(', ') %>
       </p>
     <% end %>
   </div>

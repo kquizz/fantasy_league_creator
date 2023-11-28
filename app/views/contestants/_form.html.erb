@@ -36,6 +36,16 @@
     <%= form.text_area :details, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
+  <div class="my-5">
+    <%= label_tag :division_ids, "Divisions" %>
+    <%= collection_select(:contestant, :division_ids, Division.all, :id, :name, { include_blank: true, selected: @contestant.division_ids }, { multiple: true }) %>
+  </div>
+
+  <div class="my-5">
+    <%= label_tag :new_division_name, "New Division" %>
+    <%= text_field_tag :new_division_name %>
+  </div>
+<br/>
   <div class="inline">
     <%= form.submit "Submit", class: "form-submit" %>
   </div>

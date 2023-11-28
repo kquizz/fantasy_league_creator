@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :divisions
   resources :contestants
   resources :events do
     post 'add_contestants', to: 'events#upsert_contestants', as: 'upsert_contestants'

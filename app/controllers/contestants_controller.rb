@@ -25,6 +25,11 @@ class ContestantsController < ApplicationController
 
     @contestant.created_by = current_user
 
+    if params[:new_division_name].present?
+      division = lookup_or_create_division(params[:new_division_name])
+      @contestant.divisions << division
+    end
+
     respond_to do |format|
       if @contestant.save
         format.html { redirect_to contestant_url(@contestant), notice: "Contestant was successfully created." }
@@ -38,8 +43,16 @@ class ContestantsController < ApplicationController
 
   # PATCH/PUT /contestants/1 or /contestants/1.json
   def update
+
+    local_params = contestant_params
+
+    if params[:new_division_name].present?
+      division = lookup_or_create_division(params[:new_division_name])
+      local_params[:division_ids] << division.id.to_s
+    end
+    
     respond_to do |format|
-      if @contestant.update(contestant_params)
+      if @contestant.update(local_params)
         format.html { redirect_to contestant_url(@contestant), notice: "Contestant was successfully updated." }
         format.json { render :show, status: :ok, location: @contestant }
       else
@@ -51,6 +64,8 @@ class ContestantsController < ApplicationController
 
   # DELETE /contestants/1 or /contestants/1.json
   def destroy
+    @contestant.events.clear unless @contestant.events.empty?
+    @contestant.divisions.clear unless @contestant.divisions.empty?
     @contestant.destroy
 
     respond_to do |format|
@@ -60,6 +75,11 @@ class ContestantsController < ApplicationController
   end
 
   private
+
+    def lookup_or_create_division(name)
+      Division.find_by("LOWER(name) = ?", name.downcase) || Division.create(name: name)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_contestant
       @contestant = Contestant.find(params[:id])
@@ -67,6 +87,6 @@ class ContestantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contestant_params
-      params.require(:contestant).permit(:name, :birthdate, :image, :arrival_date, :details)
+      params.require(:contestant).permit(:name, :birthdate, :image, :arrival_date, :details, division_ids: [], new_division_name: [])
     end
 end
