@@ -1,0 +1,17 @@
+<tr>
+  <td>
+    <%= league.name %>
+  </td>
+  <td>
+    <%= league.commissioner.username %>
+  </td>
+  <td>
+    <%= league.event.title %>
+  </td>
+  <td>
+    <%= link_to "Show", league, class: "show-link" %>
+  </td>
+  <td>
+    <%= link_to "Edit", edit_league_path(league), class: "edit-link" %>
+  </td>
+</tr>

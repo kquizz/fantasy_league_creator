@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_28_092851) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_30_035627) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -85,6 +85,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_28_092851) do
     t.index ["created_by_id"], name: "index_events_on_created_by_id"
   end
 
+  create_table "leagues", force: :cascade do |t|
+    t.string "name"
+    t.integer "commissioner_id", null: false
+    t.integer "event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commissioner_id"], name: "index_leagues_on_commissioner_id"
+    t.index ["event_id"], name: "index_leagues_on_event_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
@@ -102,4 +112,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_28_092851) do
   add_foreign_key "event_contestants", "contestants"
   add_foreign_key "event_contestants", "events"
   add_foreign_key "events", "users", column: "created_by_id"
+  add_foreign_key "leagues", "commissioners"
+  add_foreign_key "leagues", "events"
 end

@@ -1,0 +1,25 @@
+<div id="<%= dom_id league %>">
+  <h2>
+    <%= league.name %>
+  </h2>
+
+  <div class="flex">
+    <div>
+      <% if league.event.banner.attached? %>
+        <div class="flex-none bg-gray-300 p-4 m-2">
+          <%= image_tag @league.event.banner, style:"height:250px"%>
+        </div>
+      <% end %>
+    </div>
+    <div>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Commissioner:</strong>
+      <%= league.commissioner.username %>
+    </p>
+
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Event:</strong>
+      <%= league.event.title %>
+    </p>
+  </div>
+</div>

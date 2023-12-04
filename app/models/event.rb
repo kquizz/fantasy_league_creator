@@ -7,6 +7,8 @@ class Event < ApplicationRecord
   has_many :event_contestants
   has_many :contestants, through: :event_contestants
 
+  has_many :leagues
+
   def has_began
     season_start > Date.today ? true : false
   end

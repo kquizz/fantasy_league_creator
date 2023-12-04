@@ -1,0 +1,22 @@
+<h1>Leagues</h1>
+<br />
+
+  <div id="leagues">
+  <table>
+    <thead class="bg-gray-100">
+      <tr>
+        <th>Name</th>
+        <th>Commissioner</th>
+        <th>Event</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @leagues.each do |league| %>
+        <%= render "league_row", league: league %>
+      <% end %>
+    </tbody>
+  </div>
+</div>
+
+<%= link_to "New league", new_league_path, class: "new-link" %>

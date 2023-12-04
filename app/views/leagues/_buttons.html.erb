@@ -1,0 +1,7 @@
+<div class="flex">
+  <%= button_to "<< Back to leagues", leagues_path, method: :get, class: "back-btn" %>
+  <% if action_name == "show" %>
+    <%= button_to "Edit this league", edit_league_path(@league), method: :get, class: "edit-btn" %>
+    <%= button_to "Destroy this league", @league, method: :delete, class: "destroy-btn" %>
+  <% end %>
+</div>

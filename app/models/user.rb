@@ -7,4 +7,6 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
   validates :username, presence: true, uniqueness: true
+
+  has_many :leagues, foreign_key: 'commissioner_id', class_name: 'League'
 end
