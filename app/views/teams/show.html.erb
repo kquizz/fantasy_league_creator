@@ -4,7 +4,7 @@
   <h3>Contestants</h3>
   <div class="flex-gap">
     <% @team.contestants.each do |contestant| %>
-      <div><%= render partial: "contestants/contestant_mini", locals: { contestant: contestant } %></li>
+      <div><%= render partial: "contestants/contestant_card", locals: { contestant: contestant } %></li>
     <% end %>
   </div>
 <% end %>

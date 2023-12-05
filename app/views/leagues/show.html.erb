@@ -1,7 +1,18 @@
 <%= render @league %>
 
+<% if @league.teams.present? %>
+  <div>
+    <h3>Teams</h3>
+    <div class="flex-gap">
+      <% @league.teams.each do |team| %>
+        <%= render partial: "teams/team_card", locals: {team: team} %>
+      <% end %>
+    </div>
+  </div>
+</br>
+<% end %>
 <% if @league.rules.present? %>
-  <h3 class="text-xl font-bold mb-4">Rules</h3>
+  <h3>Rules</h3>
   <ul class="list-disc pl-4">
     <% @league.rules.each do |rule| %>
       <li class="mb-2"><%= render partial: "rules/rule", locals: { rule: rule } %></li>

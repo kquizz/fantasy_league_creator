@@ -24,11 +24,11 @@
 
 <div>
   <h3>Rules</h3>
-  <div class="flex">
+  <div class="flex flex-wrap gap-4">
     <% Rule.all.each do |rule| %>
       <div class="flex items-center">
         <%= form.check_box :rule_ids, { multiple: true }, rule.id, nil %>
-        <%= form.label "rule_#{rule.id}", " #{rule.condition}, get #{rule.points} points" %>
+        <%= form.label "rule_#{rule.id}", " #{rule.condition}, get #{rule.points} points", class: "pl-1", for: "rule_#{rule.id}" %>
       </div>
       <br/>
     <% end %>

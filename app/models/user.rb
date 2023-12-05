@@ -9,4 +9,5 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   has_many :leagues, foreign_key: 'commissioner_id', class_name: 'League'
+  has_many :teams, foreign_key: 'owner_id', class_name: 'Team'
 end

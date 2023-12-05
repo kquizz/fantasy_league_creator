@@ -3,7 +3,7 @@
     <%= league.name %>
   </h2>
 
-  <div class="flex">
+  <div class="flex flex-wrap gap-4">
     <div>
       <% if league.event.banner.attached? %>
         <div class="flex-none bg-gray-300 p-4 m-2">
@@ -11,15 +11,25 @@
         </div>
       <% end %>
     </div>
-    <div>
-    <p class="my-5">
-      <strong class="block font-medium mb-1">Commissioner:</strong>
-      <%= league.commissioner.username %>
-    </p>
-
-    <p class="my-5">
-      <strong class="block font-medium mb-1">Event:</strong>
-      <%= league.event.title %>
-    </p>
-  </div>
+    <div class="my-6 bg-gray-300 p-4 m-2">
+      <div class="flex">
+        <strong class="block font-medium">Commissioner:</strong>
+          <%= link_to league.commissioner.username, user_path(league.commissioner) %>
+      </div>
+      <div class="flex">
+        <strong class="block font-medium mb-1">Event:</strong>
+        <%= link_to league.event.title, event_path(league.event) %>
+      </div>
+    </div>
+    <% if controller_name != "league" and action_name != "show"%>
+      <div class="my-6 bg-gray-300 p-4 m-2">
+        <h4> Teams: </h4>
+        <ul>
+          <% league.teams.each do |team| %>
+            <li>
+              <%= link_to "#{team.name}(#{team.owner.username})", team_path(team) %>
+            </li>
+          <% end %>
+      </div>
+    <% end %>
 </div>
