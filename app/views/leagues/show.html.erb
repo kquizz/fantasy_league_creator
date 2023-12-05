@@ -1,2 +1,2 @@
 <%= render @league %>
-<%= render "buttons", league: @league %>
+<%= render partial: "shared/buttons", locals: { object: @league} %>

@@ -1,5 +1,5 @@
 <div class="mx-auto md:w-2/3 w-full">
   <h2>Editing Event</h2>
   <%= render "form", event: @event %>
-  <%= button_to "<< Back to events", events_path, method: :get, class: "back-btn" %>
+  <%= render partial: "shared/buttons", locals: {object: @event} %>
 </div>

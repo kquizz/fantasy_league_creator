@@ -2,5 +2,5 @@
   <h2>New division</h2>
 
   <%= render "form", division: @division %>
-  <%= button_to "<< Back to divisions", division_path, method: :get, class: "back-btn" %>
+  <%= render partial: "shared/buttons" %>
 </div>

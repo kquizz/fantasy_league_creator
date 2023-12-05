@@ -2,5 +2,5 @@
   <h2>Editing league</h2>
 
   <%= render "form", league: @league %>
-  <%= render "buttons", league: @league%>
+  <%= render partial: "shared/buttons", locals: { object: @league } %>
 </div>

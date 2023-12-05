@@ -1,0 +1,16 @@
+<div class="flex">
+  <% if action_name == "index" %>
+    <%= link_to "New #{controller_name.singularize}", send("new_#{controller_name.singularize}_path"), class: "new-link" %>
+  <% else %>
+    <% if action_name == "edit"%>
+      <%= button_to "< Back to #{controller_name.singularize}", send("#{controller_name.singularize}_path", object), method: :get, class: "back-btn" %> 
+    <% end %>
+    
+    <%= button_to "<< Back to #{controller_name}", send("#{controller_name}_path"), method: :get, class: "back-btn" %>
+    
+    <% if action_name == "show" %>
+      <%= button_to "Edit this #{controller_name.singularize}", send("edit_#{controller_name.singularize}_path", object), method: :get, class: "edit-btn" %>
+      <%= button_to "Destroy this #{controller_name}", object, method: :delete, class: "destroy-btn" %>
+    <% end %>
+  <% end %>
+</div>

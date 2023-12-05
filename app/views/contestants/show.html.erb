@@ -1,6 +1,2 @@
 <%= render @contestant %>
-<div class="flex">
-  <%= button_to "<< Back to contestants", contestants_path, method: :get, class: "back-btn" %>
-  <%= button_to "Edit this contestant", edit_contestant_path(@contestant), method: :get, class: "edit-btn" %>
-  <%= button_to "Destroy this contestant", @contestant, method: :delete, class: "destroy-btn" %>
-</div>
+<%= render partial: "shared/buttons", locals: {object: @contestant} %>
