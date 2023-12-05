@@ -24,6 +24,10 @@ class LeaguesController < ApplicationController
     @league = League.new(league_params)
 
     @league.commissioner = current_user
+    @league.rules.clear
+    league_params[:rule_ids].each do |rule_id|
+      @league.rules << Rule.find(rule_id) unless rule_id.blank?
+    end
 
     respond_to do |format|
       if @league.save
@@ -38,6 +42,11 @@ class LeaguesController < ApplicationController
 
   # PATCH/PUT /leagues/1 or /leagues/1.json
   def update
+    @league.rules.clear
+    league_params[:rule_ids].each do |rule_id|
+      @league.rules << Rule.find(rule_id) unless rule_id.blank?
+    end
+    
     respond_to do |format|
       if @league.update(league_params)
         format.html { redirect_to league_url(@league), notice: "League was successfully updated." }
@@ -59,22 +68,6 @@ class LeaguesController < ApplicationController
     end
   end
 
-  def add_rule
-    rule = Rule.find(params[:all_rules])
-    @league.rules << rule
-    respond_to do |format|
-      format.js
-    end
-  end
-
-  def remove_rule
-    rule = Rule.find(params[:selected_rules])
-    @league.rules.delete(rule)
-    respond_to do |format|
-      format.js
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_league
@@ -83,6 +76,6 @@ class LeaguesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def league_params
-      params.require(:league).permit(:name, :commissioner_id, :event_id)
+      params.require(:league).permit(:name, :commissioner_id, :event_id, rule_ids: [])
     end
 end

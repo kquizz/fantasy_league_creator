@@ -790,6 +790,10 @@ select {
   border-width: 1px;
 }
 
+.border-2 {
+  border-width: 2px;
+}
+
 .border-gray-200 {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
@@ -989,6 +993,15 @@ h3 {
 h4 {
   text-align: center;
   font-weight: 700;
+}
+
+.flex-gap {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.flex-gap>div {
+  margin: 6px;
 }
 
 .nav-link {

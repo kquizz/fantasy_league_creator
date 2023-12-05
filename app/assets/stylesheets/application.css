@@ -46,6 +46,15 @@ h4 {
   @apply font-bold text-center;
 }
 
+.flex-gap {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.flex-gap>div {
+  margin: 6px;
+}
+
 .nav-link {
   /* Add your custom styling here */
   /* For example: */
