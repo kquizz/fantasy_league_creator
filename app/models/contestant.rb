@@ -5,4 +5,6 @@ class Contestant < ApplicationRecord
 
   has_many :event_contestants
   has_many :events, through: :event_contestants
+
+  has_and_belongs_to_many :teams
 end

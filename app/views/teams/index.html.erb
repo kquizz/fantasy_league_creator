@@ -1,0 +1,22 @@
+<h2>Teams</h2>
+<br/>
+
+<div id="teams">
+  <table>
+    <thead class="bg-gray-100">
+      <tr>
+        <th>Name</th>
+        <th>League</th>
+        <th>Commissioner</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @teams.each do |team| %>
+        <%= render "team_row", team: team %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= render partial: "shared/buttons" %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_05_025931) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_05_062023) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -56,6 +56,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_05_025931) do
     t.integer "division_id", null: false
     t.index ["contestant_id", "division_id"], name: "index_contestants_divisions_on_contestant_id_and_division_id"
     t.index ["division_id", "contestant_id"], name: "index_contestants_divisions_on_division_id_and_contestant_id"
+  end
+
+  create_table "contestants_teams", id: false, force: :cascade do |t|
+    t.integer "team_id", null: false
+    t.integer "contestant_id", null: false
+    t.index ["contestant_id", "team_id"], name: "index_contestants_teams_on_contestant_id_and_team_id"
+    t.index ["team_id", "contestant_id"], name: "index_contestants_teams_on_team_id_and_contestant_id"
   end
 
   create_table "divisions", force: :cascade do |t|
@@ -111,6 +118,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_05_025931) do
     t.index ["created_by_id"], name: "index_rules_on_created_by_id"
   end
 
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.integer "owner_id", null: false
+    t.integer "league_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["league_id"], name: "index_teams_on_league_id"
+    t.index ["owner_id"], name: "index_teams_on_owner_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
@@ -131,4 +148,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_05_025931) do
   add_foreign_key "leagues", "events"
   add_foreign_key "leagues", "users", column: "commissioner_id"
   add_foreign_key "rules", "users", column: "created_by_id"
+  add_foreign_key "teams", "leagues"
+  add_foreign_key "teams", "users", column: "owner_id"
 end
