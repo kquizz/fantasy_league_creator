@@ -18,8 +18,8 @@ sudo apt install npm
 -- DB migrate
 rails db:migrate
 -- Compile tailwind css
-bundle exec rake compile_tailwind
--- Setup Solargraph (Optional) (& opens it in the background)
+rake tailwindcss:build
+-- Setup Solargraph (Optional)
 solargraph socket
 --Start rails server
 rails s
