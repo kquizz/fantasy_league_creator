@@ -718,6 +718,10 @@ select {
   margin-bottom: 0.25rem;
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -764,6 +768,10 @@ select {
 
 .flex-none {
   flex: none;
+}
+
+.list-disc {
+  list-style-type: disc;
 }
 
 .gap-4 {
@@ -838,6 +846,19 @@ select {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.pl-4 {
+  padding-left: 1rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.font-bold {
+  font-weight: 700;
 }
 
 .font-medium {
@@ -1005,7 +1026,7 @@ td {
 }
 
 thead {
-  background-color: #f2f2f2;
+  background-color: #6f2d2d;
   font-weight: bold;
 }
 

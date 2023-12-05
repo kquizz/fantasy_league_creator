@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_30_035627) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_05_025931) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -95,6 +95,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_30_035627) do
     t.index ["event_id"], name: "index_leagues_on_event_id"
   end
 
+  create_table "leagues_rules", id: false, force: :cascade do |t|
+    t.integer "league_id", null: false
+    t.integer "rule_id", null: false
+    t.index ["league_id", "rule_id"], name: "index_leagues_rules_on_league_id_and_rule_id"
+    t.index ["rule_id", "league_id"], name: "index_leagues_rules_on_rule_id_and_league_id"
+  end
+
+  create_table "rules", force: :cascade do |t|
+    t.string "condition"
+    t.integer "points"
+    t.integer "created_by_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["created_by_id"], name: "index_rules_on_created_by_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
@@ -112,6 +128,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_30_035627) do
   add_foreign_key "event_contestants", "contestants"
   add_foreign_key "event_contestants", "events"
   add_foreign_key "events", "users", column: "created_by_id"
-  add_foreign_key "leagues", "commissioners"
   add_foreign_key "leagues", "events"
+  add_foreign_key "leagues", "users", column: "commissioner_id"
+  add_foreign_key "rules", "users", column: "created_by_id"
 end

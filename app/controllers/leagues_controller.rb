@@ -59,6 +59,22 @@ class LeaguesController < ApplicationController
     end
   end
 
+  def add_rule
+    rule = Rule.find(params[:all_rules])
+    @league.rules << rule
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def remove_rule
+    rule = Rule.find(params[:selected_rules])
+    @league.rules.delete(rule)
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_league

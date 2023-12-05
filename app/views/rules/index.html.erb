@@ -1,0 +1,21 @@
+
+<h2>Rules</h2>
+<br/>
+
+<div id="rules">
+  <table>
+    <thead class="bg-gray-100">
+      <tr>
+        <th>Condition</th>
+        <th>Points</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rules.each do |rule| %>
+        <%= render "rule_row", rule: rule %>
+      <% end %>
+    </tbody>
+</div>
+
+<%= render partial: "shared/buttons", locals: { object: @rule} %>

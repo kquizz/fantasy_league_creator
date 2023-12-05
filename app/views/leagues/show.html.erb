@@ -1,2 +1,11 @@
 <%= render @league %>
-<%= render partial: "shared/buttons", locals: { object: @league} %>
+
+<% if @league.rules.present? %>
+  <h3 class="text-xl font-bold mb-4">Rules</h3>
+  <ul class="list-disc pl-4">
+    <% @league.rules.each do |rule| %>
+      <li class="mb-2"><%= render partial: "rules/rule", locals: { rule: rule } %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= render partial: "shared/buttons", locals: { object: @league } %>

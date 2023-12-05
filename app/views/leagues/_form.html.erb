@@ -1,4 +1,5 @@
 <%= form_with(model: league, class: "contents") do |form| %>
+  <%= form.hidden_field :authenticity_token, value: form_authenticity_token %>
   <% if league.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(league.errors.count, "error") %> prohibited this league from being saved:</h2>
